@@ -1,0 +1,52 @@
+{
+  "input": "1일은 주간 근무\n2일은 야간 근무\n3일 휴무\n4일 이브닝?\n31일 나이트",
+  "month": "2026-10",
+  "synthetic": true,
+  "result": {
+    "rows": [
+      {
+        "line": 1,
+        "day": 1,
+        "code": "D",
+        "source": "1일은 주간 근무",
+        "note": "",
+        "checked": false
+      },
+      {
+        "line": 2,
+        "day": 2,
+        "code": "N",
+        "source": "2일은 야간 근무",
+        "note": "",
+        "checked": false
+      },
+      {
+        "line": 3,
+        "day": 3,
+        "code": "O",
+        "source": "3일 휴무",
+        "note": "",
+        "checked": false
+      },
+      {
+        "line": 4,
+        "day": 4,
+        "code": "?",
+        "source": "4일 이브닝?",
+        "note": "Shift needs correction",
+        "checked": false
+      },
+      {
+        "line": 5,
+        "day": 31,
+        "code": "N",
+        "source": "31일 나이트",
+        "note": "",
+        "checked": false
+      }
+    ],
+    "model": "gemma4:12b-it-q4_K_M",
+    "mode": "local",
+    "duration_seconds": 25.18
+  }
+}

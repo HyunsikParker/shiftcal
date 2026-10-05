@@ -1,0 +1,290 @@
+[
+  {
+    "id": "korean-mixed",
+    "actual": [
+      [
+        1,
+        "D"
+      ],
+      [
+        2,
+        "N"
+      ],
+      [
+        3,
+        "O"
+      ],
+      [
+        4,
+        "?"
+      ],
+      [
+        31,
+        "N"
+      ]
+    ],
+    "expected": [
+      [
+        1,
+        "D"
+      ],
+      [
+        2,
+        "N"
+      ],
+      [
+        3,
+        "O"
+      ],
+      [
+        4,
+        "?"
+      ],
+      [
+        31,
+        "N"
+      ]
+    ],
+    "passed": true,
+    "result": {
+      "rows": [
+        {
+          "line": 1,
+          "day": 1,
+          "code": "D",
+          "source": "1일은 주간 근무",
+          "note": "",
+          "checked": false
+        },
+        {
+          "line": 2,
+          "day": 2,
+          "code": "N",
+          "source": "2일은 야간 근무",
+          "note": "",
+          "checked": false
+        },
+        {
+          "line": 3,
+          "day": 3,
+          "code": "O",
+          "source": "3일 휴무",
+          "note": "",
+          "checked": false
+        },
+        {
+          "line": 4,
+          "day": 4,
+          "code": "?",
+          "source": "4일 이브닝?",
+          "note": "Shift needs correction",
+          "checked": false
+        },
+        {
+          "line": 5,
+          "day": 31,
+          "code": "N",
+          "source": "31일 나이트",
+          "note": "",
+          "checked": false
+        }
+      ],
+      "model": "gemma4:12b-it-q4_K_M",
+      "mode": "local",
+      "duration_seconds": 25.18
+    },
+    "wall_seconds": 25.2
+  },
+  {
+    "id": "english-prose",
+    "actual": [
+      [
+        6,
+        "D"
+      ],
+      [
+        7,
+        "E"
+      ],
+      [
+        8,
+        "N"
+      ],
+      [
+        9,
+        "O"
+      ]
+    ],
+    "expected": [
+      [
+        6,
+        "D"
+      ],
+      [
+        7,
+        "E"
+      ],
+      [
+        8,
+        "N"
+      ],
+      [
+        9,
+        "O"
+      ]
+    ],
+    "passed": true,
+    "result": {
+      "rows": [
+        {
+          "line": 1,
+          "day": 6,
+          "code": "D",
+          "source": "On the 6th I work the morning shift.",
+          "note": "",
+          "checked": false
+        },
+        {
+          "line": 2,
+          "day": 7,
+          "code": "E",
+          "source": "7: evening shift",
+          "note": "",
+          "checked": false
+        },
+        {
+          "line": 3,
+          "day": 8,
+          "code": "N",
+          "source": "8 night",
+          "note": "",
+          "checked": false
+        },
+        {
+          "line": 4,
+          "day": 9,
+          "code": "O",
+          "source": "9 OFF",
+          "note": "",
+          "checked": false
+        }
+      ],
+      "model": "gemma4:12b-it-q4_K_M",
+      "mode": "local",
+      "duration_seconds": 9.1
+    },
+    "wall_seconds": 9.11
+  },
+  {
+    "id": "ambiguity",
+    "actual": [
+      [
+        10,
+        "?"
+      ],
+      [
+        11,
+        "?"
+      ],
+      [
+        12,
+        "N"
+      ]
+    ],
+    "expected": [
+      [
+        10,
+        "?"
+      ],
+      [
+        11,
+        "?"
+      ],
+      [
+        12,
+        "N"
+      ]
+    ],
+    "passed": true,
+    "result": {
+      "rows": [
+        {
+          "line": 1,
+          "day": 10,
+          "code": "?",
+          "source": "10 D or N",
+          "note": "Shift needs correction",
+          "checked": false
+        },
+        {
+          "line": 2,
+          "day": 11,
+          "code": "?",
+          "source": "11일 미정",
+          "note": "Shift needs correction",
+          "checked": false
+        },
+        {
+          "line": 3,
+          "day": 12,
+          "code": "N",
+          "source": "12일 야간",
+          "note": "",
+          "checked": false
+        }
+      ],
+      "model": "gemma4:12b-it-q4_K_M",
+      "mode": "local",
+      "duration_seconds": 7.57
+    },
+    "wall_seconds": 7.58
+  },
+  {
+    "id": "missing-date",
+    "actual": [
+      [
+        0,
+        "?"
+      ],
+      [
+        14,
+        "O"
+      ]
+    ],
+    "expected": [
+      [
+        0,
+        "D"
+      ],
+      [
+        14,
+        "O"
+      ]
+    ],
+    "passed": false,
+    "result": {
+      "rows": [
+        {
+          "line": 1,
+          "day": 0,
+          "code": "?",
+          "source": "주간",
+          "note": "Date needs correction; Shift needs correction",
+          "checked": false
+        },
+        {
+          "line": 2,
+          "day": 14,
+          "code": "O",
+          "source": "14일 휴무",
+          "note": "",
+          "checked": false
+        }
+      ],
+      "model": "gemma4:12b-it-q4_K_M",
+      "mode": "local",
+      "duration_seconds": 5.31
+    },
+    "wall_seconds": 5.32
+  }
+]

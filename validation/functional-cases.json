@@ -1,0 +1,82 @@
+[
+  {
+    "id": "korean-mixed",
+    "text": "1일은 주간 근무\n2일은 야간 근무\n3일 휴무\n4일 이브닝?\n31일 나이트",
+    "expected": [
+      [
+        1,
+        "D"
+      ],
+      [
+        2,
+        "N"
+      ],
+      [
+        3,
+        "O"
+      ],
+      [
+        4,
+        "?"
+      ],
+      [
+        31,
+        "N"
+      ]
+    ]
+  },
+  {
+    "id": "english-prose",
+    "text": "On the 6th I work the morning shift.\n7: evening shift\n8 night\n9 OFF",
+    "expected": [
+      [
+        6,
+        "D"
+      ],
+      [
+        7,
+        "E"
+      ],
+      [
+        8,
+        "N"
+      ],
+      [
+        9,
+        "O"
+      ]
+    ]
+  },
+  {
+    "id": "ambiguity",
+    "text": "10 D or N\n11일 미정\n12일 야간",
+    "expected": [
+      [
+        10,
+        "?"
+      ],
+      [
+        11,
+        "?"
+      ],
+      [
+        12,
+        "N"
+      ]
+    ]
+  },
+  {
+    "id": "missing-date",
+    "text": "주간\n14일 휴무",
+    "expected": [
+      [
+        0,
+        "D"
+      ],
+      [
+        14,
+        "O"
+      ]
+    ]
+  }
+]

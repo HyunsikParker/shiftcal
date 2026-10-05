@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ShiftCal — check your roster, then export</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<header><a class="wordmark" href="./">ShiftCal<span aria-hidden="true">↗</span></a><span id="mode">Checking local connection…</span></header>
+<main>
+  <div class="intro"><h1>Your shifts.<br>Your calendar.</h1><p>Turn your own roster into calendar events.<br>Read with local Gemma. Check each shift. Export.</p></div>
+  <div class="workspace">
+    <section class="input-panel" aria-labelledby="roster-heading">
+      <h2 id="roster-heading"><span class="step">1</span> Paste your shifts</h2>
+      <p class="muted">One date and shift per line. Korean or English. Leave out names, workplace details and other people’s shifts.</p>
+      <label for="roster">Your roster</label>
+      <textarea id="roster" rows="9" maxlength="8000" spellcheck="false" placeholder="1일 주간&#10;2일 야간&#10;3일 휴무&#10;4일 이브닝?" aria-describedby="input-help"></textarea>
+      <p id="input-help" class="small">Text only. No uploads, accounts or calendar permissions.</p>
+      <div class="actions"><button id="extract" class="primary" disabled>Read with Gemma</button><button id="example" class="secondary">Try a recorded example</button></div>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <details class="settings" open><summary>Month &amp; shift times</summary>
+        <label for="month">Roster month</label><input id="month" type="month" value="2026-10" min="2000-01" max="2099-12">
+        <p class="small">Times use Korea Standard Time (UTC+09:00). These are example hours; change them to match your workplace.</p>
+        <div class="time-head" aria-hidden="true"><span>Shift</span><span>Starts</span><span>Ends</span></div>
+        <div id="shift-settings"></div>
+        <p class="small">Use 24-hour times (HH:MM). An end time earlier than its start means the following day.</p>
+      </details>
+      <details><summary>What stays on your computer?</summary><p class="small">In local mode, text goes only to your local Gemma process. ShiftCal does not store your roster or use analytics. The public demo replays a saved model response to a fictional example; it cannot read a new roster. Refresh or use Clear to discard your session.</p><a class="small" href="https://github.com/HyunsikParker/shiftcal" target="_blank" rel="noopener">Code &amp; local setup ↗</a></details>
+    </section>
+    <section class="review-panel" aria-labelledby="review-heading">
+      <div class="section-heading"><h2 id="review-heading"><span class="step">2</span> Check against the original</h2><button id="clear" class="text-button">Clear</button></div>
+      <p class="muted">Gemma can misread a shift. Correct the day or code, then confirm each row. A day off stays visible but adds no calendar event.</p>
+      <div id="empty"><div class="calendar-symbol" aria-hidden="true">31<span>→ 01</span></div><h3>Night shifts cross midnight.</h3><p>Review both dates before adding them to your calendar. Nothing is exported automatically.</p></div>
+      <div id="rows"></div>
+      <div id="export-panel" hidden>
+        <div class="export-summary"><h2><span class="step">3</span> Export checked shifts</h2><strong id="count"></strong></div>
+        <p id="export-help" class="small">Import into a separate calendar named “Shifts”. Reimporting a file can create duplicates in some calendar apps.</p>
+        <ul id="errors" class="errors" aria-live="polite"></ul>
+        <button id="export" class="primary" disabled>Download .ics</button>
+      </div>
+    </section>
+  </div>
+</main>
+<footer><span>Built for the work of keeping a calendar.</span><span>Local Gemma · Open source · No subscription</span></footer>
+<script type="module" src="./app.mjs"></script>
+</body></html>
